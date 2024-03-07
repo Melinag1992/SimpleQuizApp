@@ -4,7 +4,7 @@ A Trivia app that asks random questions.
 All answer's are multiple choice . You're score is generated as you go. If you are not happy with your score you can try again ! 
 
 
-**App Architecture && Structure**
+**App Architecture & Structure**
 
 
 Used **Model-View-Modelview** design to seperate concern's and account for configurtation changes.
@@ -27,7 +27,7 @@ Used a **DataRepository** to keep all a-like data from a source coupled.
 
 
 - Finishing ViewModel Testing
-- Connecting 
+
 
 
 
