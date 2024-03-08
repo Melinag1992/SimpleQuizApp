@@ -7,27 +7,26 @@ All answer's are multiple choice . You're score is generated as you go. If you a
 **App Architecture & Structure**
 
 
-Used **Model-View-Modelview** design to seperate concern's and account for configurtation changes.
+- **Model-View-Modelview** design to seperate concern's and account for configurtation changes.
 
 
-Used Multiple **Fragments** and 1 Activity.
+-  **Fragments** to display different views and to keep app light weight with only one activity.
 
 
-Used **Observer Pattern** with LiveData to make sure our UI displayed the latest data. 
+- **Observer Pattern** with LiveData to make sure our UI displayed the latest data. 
 
 
-Used a **DataRepository** to keep all a-like data from a source coupled. 
+-  **Repository Pattern**  Decouples the business logic from data access layers.
 
 
 
-<img src="https://github.com/Melinag1992/SimpleQuizApp/assets/22303069/5400aa33-12e1-4c71-b5fb-81b284eb2b08" width="300" />
+<img src="https://github.com/Melinag1992/SimpleQuizApp/assets/22303069/5400aa33-12e1-4c71-b5fb-81b284eb2b08" width="300" />  <img src="https://github.com/Melinag1992/SimpleQuizApp/assets/22303069/a78d29c6-ed86-46b2-9397-c920312273e5" width="300" />
 
 
 **Still working on these things...**
 
 
 - Finishing ViewModel Testing
-
 
 
 
