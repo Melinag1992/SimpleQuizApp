@@ -4,22 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.quizapp.R
-import com.example.quizapp.databinding.ActivityMainBinding
 import com.example.quizapp.databinding.FragmentQuestionBinding
-import com.example.quizapp.domain.QuestionaireViewModel
+import com.example.quizapp.domain.QuestionnaireViewModel
 import com.example.quizapp.domain.models.Question
 
 
 class QuestionFragment : Fragment(R.layout.fragment_question) {
     private lateinit var viewBinding: FragmentQuestionBinding
-    private lateinit var viewModel: QuestionaireViewModel
+    private lateinit var viewModel: QuestionnaireViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,7 +23,7 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
         savedInstanceState: Bundle?
     ): View? {
         viewBinding = FragmentQuestionBinding.inflate(inflater,container,false)
-        viewModel = ViewModelProvider(this.requireActivity())[QuestionaireViewModel::class.java]
+        viewModel = ViewModelProvider(this.requireActivity())[QuestionnaireViewModel::class.java]
 
         viewModel.getQuestionData().observe(viewLifecycleOwner, Observer { question->
             validateSelected()

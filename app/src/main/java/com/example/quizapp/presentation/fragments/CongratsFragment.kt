@@ -5,16 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
-import androidx.fragment.app.replace
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.quizapp.databinding.FragmentCongratsBinding
-import com.example.quizapp.domain.QuestionaireViewModel
+import com.example.quizapp.domain.QuestionnaireViewModel
 
 class CongratsFragment : Fragment() {
     lateinit var viewBinding : FragmentCongratsBinding
-    lateinit var viewModel : QuestionaireViewModel
+    lateinit var viewModel : QuestionnaireViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,7 +21,7 @@ class CongratsFragment : Fragment() {
     ): View? {
 
         viewBinding = FragmentCongratsBinding.inflate(inflater,container,false)
-        viewModel = ViewModelProvider(this.requireActivity())[QuestionaireViewModel::class.java]
+        viewModel = ViewModelProvider(this.requireActivity())[QuestionnaireViewModel::class.java]
 
 
         viewModel.getTotalScore().observe(viewLifecycleOwner, Observer {totalScoreText->

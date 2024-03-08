@@ -3,15 +3,15 @@ package com.example.quizapp.domain
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.quizapp.domain.models.QuestionaireDataProvider
+import com.example.quizapp.domain.models.QuestionnaireDataProviderImpl
 import com.example.quizapp.data.QuestionnaireRepository
 import com.example.quizapp.domain.models.Question
 
-class QuestionaireViewModel : ViewModel(){
+class QuestionnaireViewModel : ViewModel(){
 
-    private val questionaireRepository = QuestionnaireRepository(QuestionaireDataProvider())
+    private val questionnaireRepository = QuestionnaireRepository(QuestionnaireDataProviderImpl())
     // our list of questions to be asked
-    private val questions = questionaireRepository.getQuestionnaireData().questions
+    private val questions = questionnaireRepository.getQuestionnaireData().questions
     // our current question
     private val questionData = MutableLiveData<Question>()
     private val scoreData = MutableLiveData<String>()
@@ -19,9 +19,9 @@ class QuestionaireViewModel : ViewModel(){
     private var isComplete = MutableLiveData<Boolean>();
     private var isReset = MutableLiveData<Boolean>();
     // to display our score at the end of quiz
-    var totalCorrect =  0
+    private var totalCorrect =  0
     // starting with the first question
-    var questionIndex = 0;
+    private var questionIndex = 0;
 
     init {
         setQuestionData()
@@ -35,7 +35,7 @@ class QuestionaireViewModel : ViewModel(){
 
     private fun setQuestionData(){
         if(!questions.isNullOrEmpty()){
-         questionData.value = questions[questionIndex]
+            questionData.value = questions[questionIndex]
             scoreData.value = " Score : $totalCorrect / ${questions.size}"
         }
     }
@@ -49,15 +49,19 @@ class QuestionaireViewModel : ViewModel(){
     }
 
     fun updateQuestion(){
-        updateScore()
-        // updates our question index
-        questionIndex++
-        // making sure our index doesn't go above the list size - no out of bounds
-       if(questionIndex <= questions.size-1){
-           questionData.value = questions[questionIndex]
-        }else{
-            // reached end of questions list
-           isComplete.value = true
+        //validates answer before moving to next ?
+        if(selectedAnswer.value!== "") {
+            updateScore()
+            // updates our question index
+            questionIndex++
+            // making sure our index doesn't go above the list size - no out of bounds
+            if (questionIndex <= questions.size - 1) {
+                selectedAnswer.value = ""
+                questionData.value = questions[questionIndex]
+            } else {
+                // reached end of questions list
+                isComplete.value = true
+            }
         }
     }
 
@@ -74,6 +78,5 @@ class QuestionaireViewModel : ViewModel(){
             scoreData.value = "Score : $totalCorrect / ${questions.size}"
         }
     }
-
 
 }

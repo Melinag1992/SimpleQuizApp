@@ -10,13 +10,13 @@ import androidx.fragment.app.commit
 import androidx.lifecycle.Observer
 import com.example.quizapp.R
 import com.example.quizapp.databinding.ActivityMainBinding
-import com.example.quizapp.domain.QuestionaireViewModel
+import com.example.quizapp.domain.QuestionnaireViewModel
 import com.example.quizapp.presentation.fragments.CongratsFragment
 import com.example.quizapp.presentation.fragments.QuestionFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewBinding : ActivityMainBinding
-    private val viewModel: QuestionaireViewModel by viewModels() // when the activity is killed or recreated we pull our viewmodel from current state
+    private val viewModel: QuestionnaireViewModel by viewModels() // when the activity is killed or recreated we pull our viewmodel from current state
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,12 +51,11 @@ class MainActivity : AppCompatActivity() {
             viewModel.getIsReset().observe(this, Observer {isReset->
             if(isReset){
                 replaceFragment(QuestionFragment())
-                viewModel.resetValues()
                 viewBinding.questionSubmitBtns.visibility = View.VISIBLE
                 viewBinding.tvFinalScore.visibility = View.VISIBLE
+                viewModel.resetValues()
                 }
             })
-
       }
 
     }

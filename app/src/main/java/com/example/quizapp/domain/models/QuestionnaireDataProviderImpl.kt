@@ -1,9 +1,9 @@
 package com.example.quizapp.domain.models
 
-import com.example.quizapp.data.QuestionnaireDummyApi
+import com.example.quizapp.data.QuestionnaireRepo
 
 // dummy clas for implementation of the data
-class QuestionaireDataProvider : QuestionnaireDummyApi {
+class QuestionnaireDataProviderImpl : QuestionnaireRepo {
 
     override  fun getQuestionnaireData(): Questions {
         return Questions( "success", listOf(
