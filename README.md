@@ -19,6 +19,9 @@ All answer's are multiple choice . You're score is generated as you go. If you a
 -  **Repository Pattern**  Decouples the business logic from data access layers.
 
 
+- **View Binding** to populates views with most current data
+
+
 
 <img src="https://github.com/Melinag1992/SimpleQuizApp/assets/22303069/5400aa33-12e1-4c71-b5fb-81b284eb2b08" width="300" />  <img src="https://github.com/Melinag1992/SimpleQuizApp/assets/22303069/a78d29c6-ed86-46b2-9397-c920312273e5" width="300" />
 
